@@ -1,0 +1,1134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+:root {
+  --color-light: #fef3c7;
+  --color-dark: #7c2d12;
+}
+
+.accent-text {
+  @apply text-maroon-600;
+}
+
+body {
+  font-family:
+    "Inter",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+  color: var(--color-dark);
+  background: var(--color-light);
+}
+
+.font-serif {
+  font-family: "Playfair Display", serif;
+}
+
+.font-cursive {
+  font-family: "Dancing Script", cursive;
+}
+
+.font-calligraphy {
+  font-family: "Great Vibes", cursive;
+}
+
+/* Text shadow utility */
+.text-shadow-lg {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Scroll Animation Styles */
+.scroll-container {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.scroll-closed {
+  position: relative;
+  width: 400px;
+  height: 80px;
+  background: linear-gradient(135deg, #f4e4bc 0%, #e6d3a3 50%, #d4c294 100%);
+  border-radius: 40px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 2px 10px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 10px rgba(0, 0, 0, 0.2);
+  animation: scroll-float 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+  border: 3px solid #be185d;
+}
+
+.scroll-closed:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    inset 0 2px 10px rgba(255, 255, 255, 0.4),
+    inset 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-ribbon {
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 20px;
+  background: linear-gradient(45deg, #be185d, #d97706);
+  transform: translateY(-50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-ribbon-left {
+  left: -30px;
+  border-radius: 10px 0 0 10px;
+  animation: ribbon-wave-left 2s ease-in-out infinite;
+}
+
+.scroll-ribbon-right {
+  right: -30px;
+  border-radius: 0 10px 10px 0;
+  animation: ribbon-wave-right 2s ease-in-out infinite;
+}
+
+.scroll-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.scroll-seal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.seal-wax {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, #be185d 0%, #9d174d 70%, #7c1d3a 100%);
+  border-radius: 50%;
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: seal-pulse 2s ease-in-out infinite;
+}
+
+.seal-emblem {
+  font-size: 24px;
+  color: #fef3c7;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  animation: emblem-rotate 4s linear infinite;
+}
+
+.scroll-text {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Dancing Script", cursive;
+  font-size: 18px;
+  color: #d97706;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  animation: text-glow 2s ease-in-out infinite;
+}
+
+.scroll-opened {
+  animation: scroll-unfurl 2s ease-out;
+  transform-origin: center;
+}
+
+/* Scroll Animations */
+@keyframes scroll-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes ribbon-wave-left {
+  0%, 100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-50%) rotate(-5deg);
+  }
+}
+
+@keyframes ribbon-wave-right {
+  0%, 100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-50%) rotate(5deg);
+  }
+}
+
+@keyframes seal-pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 
+      0 8px 16px rgba(0, 0, 0, 0.4),
+      inset 0 2px 4px rgba(255, 255, 255, 0.2),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 
+      0 12px 24px rgba(0, 0, 0, 0.5),
+      inset 0 3px 6px rgba(255, 255, 255, 0.3),
+      inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@keyframes emblem-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes text-glow {
+  0%, 100% {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: #d97706;
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(217, 119, 6, 0.8);
+    color: #f59e0b;
+  }
+}
+
+@keyframes scroll-unfurl {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotateY(-90deg);
+    filter: blur(10px);
+  }
+  30% {
+    opacity: 0.5;
+    transform: scale(0.6) rotateY(-45deg);
+    filter: blur(5px);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(0.9) rotateY(-10deg);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+    filter: blur(0px);
+  }
+}
+
+/* Royal Sparkles Animation */
+.sparkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(45deg, #d97706, #be185d, #f59e0b);
+  border-radius: 50%;
+  animation: sparkle 6s infinite;
+  box-shadow: 0 0 10px rgba(217, 119, 6, 0.8);
+}
+
+.sparkle-1 {
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.sparkle-2 {
+  top: 20%;
+  right: 20%;
+  animation-delay: 1s;
+}
+
+.sparkle-3 {
+  bottom: 35%;
+  left: 25%;
+  animation-delay: 2s;
+}
+
+.sparkle-4 {
+  top: 50%;
+  right: 30%;
+  animation-delay: 3s;
+}
+
+.sparkle-5 {
+  bottom: 25%;
+  right: 15%;
+  animation-delay: 0.5s;
+}
+
+.sparkle-6 {
+  top: 30%;
+  left: 10%;
+  animation-delay: 4s;
+}
+
+.sparkle-7 {
+  bottom: 40%;
+  right: 40%;
+  animation-delay: 2.5s;
+}
+
+.sparkle-8 {
+  top: 70%;
+  left: 35%;
+  animation-delay: 1.5s;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  25% {
+    opacity: 0.8;
+    transform: scale(1.2) rotate(90deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+  75% {
+    opacity: 0.6;
+    transform: scale(0.8) rotate(270deg);
+  }
+}
+
+/* Royal Crown Animation */
+.royal-crown {
+  animation: gentle-float 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(217, 119, 6, 0.6));
+}
+
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+/* Heart Container - Increased Size */
+.heart-container {
+  position: relative;
+  animation: gentle-pulse 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(190, 24, 93, 0.4));
+}
+
+@keyframes gentle-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* Invitation Content - Simplified without scroll effect */
+.invitation-content {
+  position: relative;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 30%, #f59e0b 70%, #d97706 100%);
+  border: 4px solid #be185d;
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.3),
+    inset 0 0 30px rgba(217, 119, 6, 0.2),
+    0 0 40px rgba(190, 24, 93, 0.3);
+  animation: gentle-glow 4s ease-in-out infinite;
+}
+
+@keyframes gentle-glow {
+  0%, 100% {
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.3),
+      inset 0 0 30px rgba(217, 119, 6, 0.2),
+      0 0 40px rgba(190, 24, 93, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 30px 60px rgba(0, 0, 0, 0.4),
+      inset 0 0 40px rgba(217, 119, 6, 0.3),
+      0 0 60px rgba(190, 24, 93, 0.5);
+  }
+}
+
+/* Invitation Text Styling */
+.invitation-text {
+  font-family: "Great Vibes", cursive;
+  font-size: 1.5rem;
+  line-height: 2;
+  color: #7c2d12;
+  text-align: center;
+  font-weight: 400;
+  font-style: italic;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px) {
+  .invitation-text {
+    font-size: 1.75rem;
+  }
+}
+
+/* Flower Garland Styling */
+.flower-garland {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.garland-line {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    #d97706 10%, 
+    #be185d 30%, 
+    #f59e0b 50%, 
+    #be185d 70%, 
+    #d97706 90%, 
+    transparent 100%
+  );
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.4);
+  animation: garland-glow 3s ease-in-out infinite;
+}
+
+.garland-flowers {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 2;
+}
+
+.garland-flower {
+  font-size: 2rem;
+  animation: flower-dance 4s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transform-origin: center bottom;
+}
+
+.garland-flower:nth-child(1) { animation-delay: 0s; }
+.garland-flower:nth-child(2) { animation-delay: 0.2s; }
+.garland-flower:nth-child(3) { animation-delay: 0.4s; }
+.garland-flower:nth-child(4) { animation-delay: 0.6s; }
+.garland-flower:nth-child(5) { animation-delay: 0.8s; }
+.garland-flower:nth-child(6) { animation-delay: 1s; }
+.garland-flower:nth-child(7) { animation-delay: 0.3s; }
+.garland-flower:nth-child(8) { animation-delay: 0.5s; }
+.garland-flower:nth-child(9) { animation-delay: 0.7s; }
+.garland-flower:nth-child(10) { animation-delay: 0.9s; }
+.garland-flower:nth-child(11) { animation-delay: 0.1s; }
+
+@keyframes garland-glow {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(217, 119, 6, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(217, 119, 6, 0.8);
+  }
+}
+
+@keyframes flower-dance {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-8px) rotate(5deg) scale(1.1);
+  }
+  50% {
+    transform: translateY(-4px) rotate(-3deg) scale(1.05);
+  }
+  75% {
+    transform: translateY(-12px) rotate(8deg) scale(1.15);
+  }
+}
+
+/* Ceremony Table Styling */
+.ceremony-table {
+  position: relative;
+}
+
+.ceremony-table::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(45deg, #be185d, #d97706, #f59e0b);
+  border-radius: 25px;
+  z-index: -1;
+  opacity: 0.4;
+  animation: table-glow 6s ease-in-out infinite;
+}
+
+@keyframes table-glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.02);
+  }
+}
+
+/* Falling Flowers Animation */
+.falling-flowers {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.flower {
+  position: absolute;
+  font-size: 20px;
+  animation: fall linear infinite;
+  opacity: 0.8;
+}
+
+.flower-1 {
+  left: 10%;
+  animation-duration: 8s;
+  animation-delay: 0s;
+}
+
+.flower-2 {
+  left: 20%;
+  animation-duration: 10s;
+  animation-delay: 2s;
+}
+
+.flower-3 {
+  left: 30%;
+  animation-duration: 7s;
+  animation-delay: 4s;
+}
+
+.flower-4 {
+  left: 40%;
+  animation-duration: 9s;
+  animation-delay: 1s;
+}
+
+.flower-5 {
+  left: 50%;
+  animation-duration: 11s;
+  animation-delay: 3s;
+}
+
+.flower-6 {
+  left: 60%;
+  animation-duration: 8s;
+  animation-delay: 5s;
+}
+
+.flower-7 {
+  left: 70%;
+  animation-duration: 10s;
+  animation-delay: 0.5s;
+}
+
+.flower-8 {
+  left: 80%;
+  animation-duration: 9s;
+  animation-delay: 2.5s;
+}
+
+.flower-9 {
+  left: 90%;
+  animation-duration: 7s;
+  animation-delay: 4.5s;
+}
+
+.flower-10 {
+  left: 5%;
+  animation-duration: 12s;
+  animation-delay: 1.5s;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+/* Flower Border Styles */
+.flower-border {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Top Border */
+.flower-border-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flower-border-line {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    #d97706 5%, 
+    #be185d 20%, 
+    #f59e0b 40%, 
+    #be185d 60%, 
+    #d97706 80%, 
+    #f59e0b 95%, 
+    transparent 100%
+  );
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.6);
+  animation: border-glow 4s ease-in-out infinite;
+}
+
+.flower-border-flowers {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 20px;
+  z-index: 2;
+}
+
+.border-flower {
+  font-size: 1.5rem;
+  animation: border-flower-dance 5s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  transform-origin: center bottom;
+}
+
+/* Bottom Border */
+.flower-border-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Left Border */
+.flower-border-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flower-border-line-vertical {
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    #d97706 5%, 
+    #be185d 20%, 
+    #f59e0b 40%, 
+    #be185d 60%, 
+    #d97706 80%, 
+    #f59e0b 95%, 
+    transparent 100%
+  );
+  border-radius: 2px;
+  box-shadow: 2px 0 8px rgba(217, 119, 6, 0.6);
+  animation: border-glow 4s ease-in-out infinite;
+}
+
+.flower-border-flowers-vertical {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 20px 0;
+  z-index: 2;
+}
+
+.border-flower-vertical {
+  font-size: 1.5rem;
+  animation: border-flower-dance-vertical 5s ease-in-out infinite;
+  filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.4));
+  transform-origin: center center;
+}
+
+/* Right Border */
+.flower-border-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes border-glow {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(217, 119, 6, 0.6);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(217, 119, 6, 1);
+  }
+}
+
+@keyframes border-flower-dance {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-4px) rotate(5deg) scale(1.1);
+  }
+  50% {
+    transform: translateY(-2px) rotate(-3deg) scale(1.05);
+  }
+  75% {
+    transform: translateY(-6px) rotate(8deg) scale(1.15);
+  }
+}
+
+@keyframes border-flower-dance-vertical {
+  0%, 100% {
+    transform: translateX(0px) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateX(-4px) rotate(5deg) scale(1.1);
+  }
+  50% {
+    transform: translateX(-2px) rotate(-3deg) scale(1.05);
+  }
+  75% {
+    transform: translateX(-6px) rotate(8deg) scale(1.15);
+  }
+}
+
+/* Firecrackers Animation */
+.firecrackers {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 8;
+  overflow: hidden;
+}
+
+.firecracker {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: explode ease-out infinite;
+}
+
+.firecracker-1 {
+  top: 20%;
+  left: 15%;
+  background: #ff6b6b;
+  animation-duration: 3s;
+  animation-delay: 0s;
+}
+
+.firecracker-2 {
+  top: 30%;
+  right: 20%;
+  background: #4ecdc4;
+  animation-duration: 4s;
+  animation-delay: 1s;
+}
+
+.firecracker-3 {
+  top: 40%;
+  left: 70%;
+  background: #45b7d1;
+  animation-duration: 3.5s;
+  animation-delay: 2s;
+}
+
+.firecracker-4 {
+  top: 60%;
+  left: 25%;
+  background: #f9ca24;
+  animation-duration: 4.5s;
+  animation-delay: 0.5s;
+}
+
+.firecracker-5 {
+  top: 70%;
+  right: 30%;
+  background: #6c5ce7;
+  animation-duration: 3s;
+  animation-delay: 1.5s;
+}
+
+.firecracker-6 {
+  top: 50%;
+  left: 50%;
+  background: #fd79a8;
+  animation-duration: 4s;
+  animation-delay: 2.5s;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+    box-shadow: 
+      0 0 0 0 currentColor,
+      0 0 0 0 currentColor,
+      0 0 0 0 currentColor,
+      0 0 0 0 currentColor;
+  }
+  25% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 
+      20px 0 0 -2px currentColor,
+      -20px 0 0 -2px currentColor,
+      0 20px 0 -2px currentColor,
+      0 -20px 0 -2px currentColor;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+    box-shadow: 
+      40px 0 0 -4px currentColor,
+      -40px 0 0 -4px currentColor,
+      0 40px 0 -4px currentColor,
+      0 -40px 0 -4px currentColor,
+      28px 28px 0 -4px currentColor,
+      -28px -28px 0 -4px currentColor,
+      28px -28px 0 -4px currentColor,
+      -28px 28px 0 -4px currentColor;
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 0;
+    box-shadow: 
+      60px 0 0 -6px transparent,
+      -60px 0 0 -6px transparent,
+      0 60px 0 -6px transparent,
+      0 -60px 0 -6px transparent,
+      42px 42px 0 -6px transparent,
+      -42px -42px 0 -6px transparent,
+      42px -42px 0 -6px transparent,
+      -42px 42px 0 -6px transparent;
+  }
+}
+
+/* Enhanced Fireworks Background */
+.fireworks-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(217, 119, 6, 0.3) 0%, transparent 30%),
+    radial-gradient(circle at 80% 30%, rgba(190, 24, 93, 0.3) 0%, transparent 30%),
+    radial-gradient(circle at 30% 70%, rgba(245, 158, 11, 0.2) 0%, transparent 25%),
+    radial-gradient(circle at 70% 80%, rgba(217, 119, 6, 0.25) 0%, transparent 35%);
+  animation: fireworks-burst 8s ease-in-out infinite;
+}
+
+.fireworks-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(217, 119, 6, 0.8), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(190, 24, 93, 0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(245, 158, 11, 0.9), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: fireworks-particles 12s linear infinite;
+}
+
+@keyframes fireworks-burst {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes fireworks-particles {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fef3c7;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #d97706, #be185d);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #b45309, #9d174d);
+}
+
+/* only use this to update the style of the auth input fields. use a different class for all other input fields */
+.auth-input-field {
+  @apply w-full px-4 py-3 rounded-container bg-gold-100 border-2 border-gold-400 focus:border-maroon-600 focus:ring-1 focus:ring-maroon-600 outline-none transition-shadow shadow-sm hover:shadow text-maroon-800;
+}
+
+/* only use this to update the style of the auth buttons. use the button class for all other buttons */
+.auth-button {
+  @apply w-full px-4 py-3 rounded bg-gradient-to-r from-gold-600 to-maroon-600 text-gold-200 font-semibold hover:from-gold-700 hover:to-maroon-700 transition-colors shadow-sm hover:shadow disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sparkle {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .ceremony-table table {
+    font-size: 0.875rem;
+  }
+  
+  .ceremony-table th,
+  .ceremony-table td {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .heart-container svg {
+    width: 320px;
+    height: 280px;
+  }
+  
+  .heart-container h1 {
+    font-size: 2.5rem;
+  }
+  
+  .heart-container .text-4xl {
+    font-size: 2rem;
+  }
+  
+  .invitation-text {
+    font-size: 1.25rem;
+  }
+  
+  .invitation-content {
+    padding: 2rem 1.5rem;
+  }
+  
+  .flower {
+    font-size: 16px;
+  }
+  
+  .firecracker {
+    width: 3px;
+    height: 3px;
+  }
+  
+  .garland-flower {
+    font-size: 1.5rem;
+  }
+  
+  .flower-garland {
+    max-width: 400px;
+    height: 60px;
+  }
+  
+  .scroll-closed {
+    width: 300px;
+    height: 60px;
+  }
+  
+  .scroll-text {
+    font-size: 16px;
+    bottom: -35px;
+  }
+  
+  .seal-wax {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .seal-emblem {
+    font-size: 18px;
+  }
+
+  .border-flower,
+  .border-flower-vertical {
+    font-size: 1.25rem;
+  }
+
+  .flower-border-top,
+  .flower-border-bottom {
+    height: 40px;
+  }
+
+  .flower-border-left,
+  .flower-border-right {
+    width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heart-container svg {
+    width: 280px;
+    height: 240px;
+  }
+  
+  .heart-container h1 {
+    font-size: 2rem;
+  }
+  
+  .heart-container .text-4xl {
+    font-size: 1.5rem;
+  }
+  
+  .sparkle {
+    width: 4px;
+    height: 4px;
+  }
+  
+  .flower {
+    font-size: 14px;
+  }
+  
+  .firecracker {
+    width: 2px;
+    height: 2px;
+  }
+  
+  .garland-flower {
+    font-size: 1.25rem;
+  }
+  
+  .flower-garland {
+    max-width: 300px;
+    height: 50px;
+  }
+  
+  .scroll-closed {
+    width: 250px;
+    height: 50px;
+  }
+  
+  .scroll-text {
+    font-size: 14px;
+    bottom: -30px;
+  }
+  
+  .seal-wax {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .seal-emblem {
+    font-size: 14px;
+  }
+
+  .border-flower,
+  .border-flower-vertical {
+    font-size: 1rem;
+  }
+
+  .flower-border-top,
+  .flower-border-bottom {
+    height: 35px;
+  }
+
+  .flower-border-left,
+  .flower-border-right {
+    width: 35px;
+  }
+}
