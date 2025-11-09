@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
 
 :root {
   --color-light: #fef3c7;
@@ -46,73 +46,205 @@ body {
   font-family: "Great Vibes", cursive;
 }
 
+.font-antique {
+  font-family: "Cinzel", serif;
+}
+
+.font-elegant {
+  font-family: "Cormorant Garamond", serif;
+}
+
 /* Text shadow utility */
 .text-shadow-lg {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Scroll Animation Styles */
+/* श्री Text Styling */
+.shri-text {
+  font-family: "Cinzel", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #d97706;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  animation: shri-glow 4s ease-in-out infinite;
+  text-align: center;
+  letter-spacing: 0.2em;
+}
+
+@keyframes shri-glow {
+  0%, 100% {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+    color: #d97706;
+  }
+  50% {
+    text-shadow: 4px 4px 12px rgba(217, 119, 6, 0.8);
+    color: #f59e0b;
+  }
+}
+
+/* Enhanced Thinner Scroll Animation Styles */
 .scroll-container {
-  perspective: 1000px;
+  perspective: 1200px;
   cursor: pointer;
-}
-
-.scroll-closed {
   position: relative;
-  width: 400px;
-  height: 80px;
-  background: linear-gradient(135deg, #f4e4bc 0%, #e6d3a3 50%, #d4c294 100%);
-  border-radius: 40px;
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.3),
-    inset 0 2px 10px rgba(255, 255, 255, 0.3),
-    inset 0 -2px 10px rgba(0, 0, 0, 0.2);
-  animation: scroll-float 3s ease-in-out infinite;
-  transition: all 0.3s ease;
-  border: 3px solid #be185d;
 }
 
-.scroll-closed:hover {
-  transform: scale(1.05);
-  box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.4),
-    inset 0 2px 10px rgba(255, 255, 255, 0.4),
-    inset 0 -2px 10px rgba(0, 0, 0, 0.3);
+.scroll-closed-thin {
+  position: relative;
+  width: 520px;
+  height: 60px;
+  animation: scroll-float-thin 5s ease-in-out infinite;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 12px 25px rgba(0, 0, 0, 0.3));
 }
 
-.scroll-ribbon {
-  position: absolute;
-  top: 50%;
-  width: 60px;
-  height: 20px;
-  background: linear-gradient(45deg, #be185d, #d97706);
-  transform: translateY(-50%);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+.scroll-closed-thin:hover {
+  transform: scale(1.05) rotateY(5deg);
+  filter: drop-shadow(0 18px 35px rgba(0, 0, 0, 0.4));
 }
 
-.scroll-ribbon-left {
-  left: -30px;
-  border-radius: 10px 0 0 10px;
-  animation: ribbon-wave-left 2s ease-in-out infinite;
-}
-
-.scroll-ribbon-right {
-  right: -30px;
-  border-radius: 0 10px 10px 0;
-  animation: ribbon-wave-right 2s ease-in-out infinite;
-}
-
-.scroll-body {
+.scroll-paper-thin {
   position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  z-index: 2;
+}
+
+.scroll-roll-thin {
+  height: 100%;
+  position: relative;
+  background: linear-gradient(135deg, #8b4513 0%, #a0522d 25%, #cd853f 60%, #daa520 85%, #f4d03f 100%);
+  box-shadow: 
+    inset 0 0 15px rgba(0, 0, 0, 0.25),
+    inset 0 2px 8px rgba(255, 255, 255, 0.2),
+    0 6px 20px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
 
-.scroll-seal {
+.scroll-roll-left-thin-extended {
+  width: 65px;
+  border-radius: 50px 20px 20px 50px;
+  animation: roll-left-thin 7s ease-in-out infinite;
+}
+
+.scroll-roll-right-thin-extended {
+  width: 65px;
+  border-radius: 20px 50px 50px 20px;
+  animation: roll-right-thin 7s ease-in-out infinite;
+}
+
+.scroll-roll-inner-thin {
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  right: 30%;
+  bottom: 15%;
+  background: linear-gradient(90deg, #654321 0%, #8b4513 30%, #a0522d 70%, #cd853f 100%);
+  border-radius: 50px;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+.scroll-roll-shadow-thin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 0%, rgba(0, 0, 0, 0.15) 50%, transparent 100%);
+  border-radius: inherit;
+}
+
+.scroll-center-thin {
+  flex: 1;
+  height: 100%;
+  background: linear-gradient(135deg, #fefcf3 0%, #f8f4e6 15%, #f5efe0 40%, #f0e6d2 70%, #ede0c7 100%);
+  position: relative;
+  box-shadow: 
+    inset 0 3px 10px rgba(139, 69, 19, 0.15),
+    inset 0 -3px 10px rgba(139, 69, 19, 0.15),
+    0 0 20px rgba(218, 165, 32, 0.2);
+  border-top: 1px solid #daa520;
+  border-bottom: 1px solid #daa520;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-texture-thin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 4px,
+      rgba(139, 69, 19, 0.03) 4px,
+      rgba(139, 69, 19, 0.03) 5px
+    );
+  opacity: 0.7;
+}
+
+/* Royal Invitation Text - Enhanced */
+.royal-invitation-text {
+  position: relative;
+  z-index: 3;
+  font-family: "French Script", cursive;
+  font-size: 2rem;
+  font-style: italic;
+  color: #8b4513;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: gentle-glow-invitation 4s ease-in-out infinite;
+  transform: skew(-5deg);
+  font-weight: 600;
+}
+
+.royal-invitation-text:hover {
+  transform: scale(1.05) skew(-5deg);
+  color: #654321;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes gentle-glow-invitation {
+  0%, 100% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    text-shadow: 3px 3px 8px rgba(139, 69, 19, 0.7);
+  }
+}
+
+/* Instruction Text Styling */
+.instruction-text {
+  font-family: "Great Vibes", cursive;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #d97706;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  transform: skew(-3deg);
+  font-weight: 500;
+  animation: gentle-pulse-instruction 3s ease-in-out infinite;
+  margin-bottom: 2rem;
+}
+
+@keyframes gentle-pulse-instruction {
+  0%, 100% {
+    opacity: 0.8;
+    transform: skew(-3deg) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: skew(-3deg) scale(1.05);
+  }
+}
+
+.flower-seal {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -120,109 +252,145 @@ body {
   z-index: 10;
 }
 
-.seal-wax {
-  width: 60px;
-  height: 60px;
-  background: radial-gradient(circle, #be185d 0%, #9d174d 70%, #7c1d3a 100%);
+.seal-wax-flower {
+  width: 55px;
+  height: 55px;
+  background: radial-gradient(circle, #be185d 0%, #9d174d 35%, #7c1d3a 70%, #5c1529 100%);
   border-radius: 50%;
   box-shadow: 
-    0 8px 16px rgba(0, 0, 0, 0.4),
-    inset 0 2px 4px rgba(255, 255, 255, 0.2),
-    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+    0 8px 20px rgba(0, 0, 0, 0.4),
+    inset 0 2px 6px rgba(255, 255, 255, 0.25),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(190, 24, 93, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: seal-pulse 2s ease-in-out infinite;
+  animation: seal-pulse-flower 4s ease-in-out infinite;
+  position: relative;
 }
 
-.seal-emblem {
-  font-size: 24px;
-  color: #fef3c7;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  animation: emblem-rotate 4s linear infinite;
+.seal-emblem-flower {
+  font-size: 22px;
+  z-index: 2;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
 
-.scroll-text {
+.seal-shine-flower {
   position: absolute;
-  bottom: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: "Dancing Script", cursive;
-  font-size: 18px;
-  color: #d97706;
-  font-weight: 600;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  animation: text-glow 2s ease-in-out infinite;
+  top: 18%;
+  left: 25%;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: seal-shine-move-flower 5s ease-in-out infinite;
 }
 
-.scroll-opened {
-  animation: scroll-unfurl 2s ease-out;
-  transform-origin: center;
+.scroll-ribbon-thin {
+  position: absolute;
+  top: 50%;
+  height: 14px;
+  background: linear-gradient(45deg, #be185d 0%, #d97706 50%, #be185d 100%);
+  transform: translateY(-50%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }
 
-/* Scroll Animations */
-@keyframes scroll-float {
+.scroll-ribbon-left-thin-extended {
+  left: -40px;
+  width: 80px;
+  border-radius: 10px 0 0 10px;
+  animation: ribbon-wave-left-thin 4s ease-in-out infinite;
+  background: linear-gradient(45deg, #be185d 0%, #d97706 50%, #f59e0b 100%);
+}
+
+.scroll-ribbon-right-thin-extended {
+  right: -40px;
+  width: 80px;
+  border-radius: 0 10px 10px 0;
+  animation: ribbon-wave-right-thin 4s ease-in-out infinite;
+  background: linear-gradient(45deg, #f59e0b 0%, #d97706 50%, #be185d 100%);
+}
+
+/* Thinner Scroll Animations */
+@keyframes scroll-float-thin {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-10px) rotate(1deg);
+    transform: translateY(-8px) rotate(0.3deg);
   }
 }
 
-@keyframes ribbon-wave-left {
+@keyframes roll-left-thin {
   0%, 100% {
-    transform: translateY(-50%) rotate(0deg);
+    transform: rotateY(0deg) rotateZ(0deg);
   }
   50% {
-    transform: translateY(-50%) rotate(-5deg);
+    transform: rotateY(-3deg) rotateZ(-0.5deg);
   }
 }
 
-@keyframes ribbon-wave-right {
+@keyframes roll-right-thin {
   0%, 100% {
-    transform: translateY(-50%) rotate(0deg);
+    transform: rotateY(0deg) rotateZ(0deg);
   }
   50% {
-    transform: translateY(-50%) rotate(5deg);
+    transform: rotateY(3deg) rotateZ(0.5deg);
   }
 }
 
-@keyframes seal-pulse {
+@keyframes seal-pulse-flower {
   0%, 100% {
     transform: translate(-50%, -50%) scale(1);
     box-shadow: 
-      0 8px 16px rgba(0, 0, 0, 0.4),
-      inset 0 2px 4px rgba(255, 255, 255, 0.2),
-      inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+      0 8px 20px rgba(0, 0, 0, 0.4),
+      inset 0 2px 6px rgba(255, 255, 255, 0.25),
+      inset 0 -2px 6px rgba(0, 0, 0, 0.3),
+      0 0 30px rgba(190, 24, 93, 0.5);
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -50%) scale(1.08);
     box-shadow: 
-      0 12px 24px rgba(0, 0, 0, 0.5),
-      inset 0 3px 6px rgba(255, 255, 255, 0.3),
-      inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+      0 12px 25px rgba(0, 0, 0, 0.5),
+      inset 0 3px 8px rgba(255, 255, 255, 0.3),
+      inset 0 -3px 8px rgba(0, 0, 0, 0.4),
+      0 0 40px rgba(190, 24, 93, 0.7);
   }
 }
 
-@keyframes emblem-rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes text-glow {
+@keyframes seal-shine-move-flower {
   0%, 100% {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    color: #d97706;
+    opacity: 0.5;
+    transform: translate(0px, 0px);
   }
   50% {
-    text-shadow: 0 0 20px rgba(217, 119, 6, 0.8);
-    color: #f59e0b;
+    opacity: 0.8;
+    transform: translate(6px, -3px);
   }
+}
+
+@keyframes ribbon-wave-left-thin {
+  0%, 100% {
+    transform: translateY(-50%) rotate(0deg) translateX(0px);
+  }
+  50% {
+    transform: translateY(-50%) rotate(-1deg) translateX(-2px);
+  }
+}
+
+@keyframes ribbon-wave-right-thin {
+  0%, 100% {
+    transform: translateY(-50%) rotate(0deg) translateX(0px);
+  }
+  50% {
+    transform: translateY(-50%) rotate(1deg) translateX(2px);
+  }
+}
+
+.scroll-opened {
+  animation: scroll-unfurl 1s ease-out;
+  transform-origin: center;
 }
 
 @keyframes scroll-unfurl {
@@ -344,7 +512,7 @@ body {
 /* Heart Container - Increased Size */
 .heart-container {
   position: relative;
-  animation: gentle-pulse 4s ease-in-out infinite;
+  animation: gentle-pulse 2s ease-in-out infinite;
   filter: drop-shadow(0 0 20px rgba(190, 24, 93, 0.4));
 }
 
@@ -357,7 +525,7 @@ body {
   }
 }
 
-/* Invitation Content - Simplified without scroll effect */
+/* Invitation Content */
 .invitation-content {
   position: relative;
   background: linear-gradient(135deg, #fef3c7 0%, #fde68a 30%, #f59e0b 70%, #d97706 100%);
@@ -365,9 +533,9 @@ body {
   border-radius: 20px;
   padding: 3rem 2rem;
   box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.3),
+    0 50px 50px rgba(0, 0, 0, 0.3),
     inset 0 0 30px rgba(217, 119, 6, 0.2),
-    0 0 40px rgba(190, 24, 93, 0.3);
+    0 0 50px rgba(190, 24, 93, 0.3);
   animation: gentle-glow 4s ease-in-out infinite;
 }
 
@@ -388,8 +556,8 @@ body {
 
 /* Invitation Text Styling */
 .invitation-text {
-  font-family: "Great Vibes", cursive;
-  font-size: 1.5rem;
+  font-family: "Alex Brush", cursive;
+  font-size: 0.5rem;
   line-height: 2;
   color: #7c2d12;
   text-align: center;
@@ -1026,23 +1194,23 @@ body {
     height: 60px;
   }
   
-  .scroll-closed {
-    width: 300px;
-    height: 60px;
+  .scroll-closed-thin {
+    width: 450px;
+    height: 55px;
   }
   
-  .scroll-text {
-    font-size: 16px;
-    bottom: -35px;
+  .scroll-roll-left-thin-extended,
+  .scroll-roll-right-thin-extended {
+    width: 55px;
   }
   
-  .seal-wax {
-    width: 45px;
-    height: 45px;
+  .seal-wax-flower {
+    width: 50px;
+    height: 50px;
   }
   
-  .seal-emblem {
-    font-size: 18px;
+  .seal-emblem-flower {
+    font-size: 20px;
   }
 
   .border-flower,
@@ -1058,6 +1226,31 @@ body {
   .flower-border-left,
   .flower-border-right {
     width: 40px;
+  }
+
+  .royal-invitation-text {
+    font-size: 1.4rem;
+  }
+
+  .instruction-text {
+    font-size: 1.2rem;
+  }
+
+  .scroll-ribbon-left-thin-extended,
+  .scroll-ribbon-right-thin-extended {
+    width: 70px;
+  }
+
+  .scroll-ribbon-left-thin-extended {
+    left: -35px;
+  }
+
+  .scroll-ribbon-right-thin-extended {
+    right: -35px;
+  }
+
+  .shri-text {
+    font-size: 2rem;
   }
 }
 
@@ -1098,23 +1291,23 @@ body {
     height: 50px;
   }
   
-  .scroll-closed {
-    width: 250px;
+  .scroll-closed-thin {
+    width: 380px;
     height: 50px;
   }
   
-  .scroll-text {
-    font-size: 14px;
-    bottom: -30px;
+  .scroll-roll-left-thin-extended,
+  .scroll-roll-right-thin-extended {
+    width: 50px;
   }
   
-  .seal-wax {
-    width: 35px;
-    height: 35px;
+  .seal-wax-flower {
+    width: 45px;
+    height: 45px;
   }
   
-  .seal-emblem {
-    font-size: 14px;
+  .seal-emblem-flower {
+    font-size: 18px;
   }
 
   .border-flower,
@@ -1130,5 +1323,30 @@ body {
   .flower-border-left,
   .flower-border-right {
     width: 35px;
+  }
+
+  .royal-invitation-text {
+    font-size: 1.2rem;
+  }
+
+  .instruction-text {
+    font-size: 1rem;
+  }
+
+  .scroll-ribbon-left-thin-extended,
+  .scroll-ribbon-right-thin-extended {
+    width: 60px;
+  }
+
+  .scroll-ribbon-left-thin-extended {
+    left: -30px;
+  }
+
+  .scroll-ribbon-right-thin-extended {
+    right: -30px;
+  }
+
+  .shri-text {
+    font-size: 1.5rem;
   }
 }

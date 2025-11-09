@@ -209,43 +209,49 @@ export default function App() {
         <div className="sparkle sparkle-8"></div>
       </div>
 
-      {/* Admin Access Button */}
-      <div className="fixed top-4 right-4 z-50">
-        {!isAdmin ? (
-          <button
-            onClick={() => setShowAdminPrompt(true)}
-            className="bg-maroon-700 hover:bg-maroon-800 text-gold-200 px-4 py-2 rounded-lg shadow-lg transition-all duration-300 font-medium border border-gold-600"
-          >
-            Admin Access
-          </button>
-        ) : (
-          <div className="flex gap-2">
-            {!isEditing ? (
-              <button
-                onClick={startEditing}
-                className="bg-gold-600 hover:bg-gold-700 text-maroon-900 px-4 py-2 rounded-lg shadow-lg transition-all duration-300 font-medium border border-maroon-600"
-              >
-                Edit Details
-              </button>
-            ) : (
-              <>
+      {/* Admin Access Button - Only visible when scroll is opened */}
+      {scrollOpened && (
+        <div className="fixed bottom-4 right-4 z-50">
+          {!isAdmin ? (
+            <button
+              onClick={() => setShowAdminPrompt(true)}
+              className="w-10 h-10 bg-maroon-700/80 hover:bg-maroon-800 text-gold-200 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center text-lg border border-gold-600/50 backdrop-blur-sm"
+              title="Admin Access"
+            >
+              ✏️
+            </button>
+          ) : (
+            <div className="flex gap-2">
+              {!isEditing ? (
                 <button
-                  onClick={saveChanges}
-                  className="bg-maroon-600 hover:bg-maroon-700 text-gold-200 px-4 py-2 rounded-lg shadow-lg transition-all duration-300 font-medium border border-gold-600"
+                  onClick={startEditing}
+                  className="w-10 h-10 bg-gold-600 hover:bg-gold-700 text-maroon-900 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center text-lg border border-maroon-600"
+                  title="Edit Details"
                 >
-                  Save
+                  ✏️
                 </button>
-                <button
-                  onClick={() => setIsEditing(false)}
-                  className="bg-gold-800 hover:bg-gold-900 text-gold-200 px-4 py-2 rounded-lg shadow-lg transition-all duration-300 font-medium border border-maroon-600"
-                >
-                  Cancel
-                </button>
-              </>
-            )}
-          </div>
-        )}
-      </div>
+              ) : (
+                <>
+                  <button
+                    onClick={saveChanges}
+                    className="w-10 h-10 bg-maroon-600 hover:bg-maroon-700 text-gold-200 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center text-lg border border-gold-600"
+                    title="Save Changes"
+                  >
+                    ✅
+                  </button>
+                  <button
+                    onClick={() => setIsEditing(false)}
+                    className="w-10 h-10 bg-gold-800 hover:bg-gold-900 text-gold-200 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center text-lg border border-maroon-600"
+                    title="Cancel"
+                  >
+                    ❌
+                  </button>
+                </>
+              )}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Admin Code Prompt Modal */}
       {showAdminPrompt && (
@@ -284,21 +290,55 @@ export default function App() {
       <div className="relative z-20 max-w-6xl mx-auto px-4 py-8">
         {/* Scroll Invitation */}
         {!scrollOpened ? (
-          <div className="flex items-center justify-center min-h-screen">
+          <div className="flex flex-col items-center justify-center min-h-screen">
+            {/* श्री Text at Top */}
+            <div className="shri-text mb-12">
+              || श्री ||
+            </div>
+
+            {/* Instruction Text */}
+            <div className="instruction-text mb-8">
+              Click the scroll to Unveil it!
+            </div>
+
+            {/* Enhanced Thinner Scroll Design */}
             <div className="scroll-container">
-              <div className="scroll-closed" onClick={openScroll}>
-                <div className="scroll-ribbon scroll-ribbon-left"></div>
-                <div className="scroll-ribbon scroll-ribbon-right"></div>
-                <div className="scroll-body">
-                  <div className="scroll-seal">
-                    <div className="seal-wax">
-                      <div className="seal-emblem">💍</div>
+              <div className="scroll-closed-thin">
+                {/* Scroll Paper */}
+                <div className="scroll-paper-thin">
+                  {/* Left Roll - Extended */}
+                  <div className="scroll-roll-thin scroll-roll-left-thin-extended">
+                    <div className="scroll-roll-inner-thin"></div>
+                    <div className="scroll-roll-shadow-thin"></div>
+                  </div>
+                  
+                  {/* Center Paper */}
+                  <div className="scroll-center-thin">
+                    <div className="scroll-texture-thin"></div>
+                    {/* Royal Invitation Text - Clickable */}
+                    <div className="royal-invitation-text" onClick={openScroll}>
+                      Royal Invitation
                     </div>
                   </div>
-                  <div className="scroll-text">
-                    Click to Open
+                  
+                  {/* Right Roll - Extended */}
+                  <div className="scroll-roll-thin scroll-roll-right-thin-extended">
+                    <div className="scroll-roll-inner-thin"></div>
+                    <div className="scroll-roll-shadow-thin"></div>
                   </div>
                 </div>
+                
+                {/* Flower Seal - Hidden on first page */}
+                <div className="flower-seal" style={{ opacity: 0, pointerEvents: 'none' }}>
+                  <div className="seal-wax-flower">
+                    <div className="seal-emblem-flower">🌸</div>
+                    <div className="seal-shine-flower"></div>
+                  </div>
+                </div>
+                
+                {/* Ribbons - Extended */}
+                <div className="scroll-ribbon-thin scroll-ribbon-left-thin-extended"></div>
+                <div className="scroll-ribbon-thin scroll-ribbon-right-thin-extended"></div>
               </div>
             </div>
           </div>
@@ -330,7 +370,7 @@ export default function App() {
                 <div className="relative">
                   {/* Heart Shape - Increased Size */}
                   <div className="heart-container">
-                    <svg viewBox="0 0 400 350" className="w-[28rem] h-[24rem] mx-auto">
+                    <svg viewBox="0 0 400 350" className="w-[32rem] h-[27rem] mx-auto">
                       <defs>
                         <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                           <stop offset="0%" stopColor="#be185d" />

@@ -8,8 +8,8 @@ export const getWeddingDetails = query({
     if (!details) {
       // Return default data if none exists
       return {
-        groomName: "Alexander",
-        brideName: "Isabella",
+        groomName: "Shritesh",
+        brideName: "Sayali",
         invitationText: "With hearts full of joy and love, we cordially invite you to witness and celebrate the sacred union of our souls. Join us as we embark on this beautiful journey together, surrounded by the warmth and blessings of our beloved family and friends.",
         ceremonies: [
           {
